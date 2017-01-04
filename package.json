@@ -5,7 +5,8 @@
   "main": "main.js",
   "repository": "https://github.com/alagodich/alagodich-metronome.git",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+     "lint": "eslint",
+    "test": "jest",
     "start": "electron .",
     "webpack-watch": "webpack --config webpack.config.js --watch",
     "webpack-build": "webpack --config webpack.config.prod.js",
@@ -13,9 +14,22 @@
   },
   "author": "https://github.com/alagodich",
   "license": "ISC",
+  "jest": {
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/react-test-renderer/",
+      "<rootDir>/node_modules/react-addons-test-utils/",
+      "<rootDir>/node_modules/fbjs/",
+      "<rootDir>/renderer/components/"
+    ]
+  },
   "devDependencies": {
     "babel-core": "6.21.0",
+    "babel-jest": "18.0.0",
     "babel-loader": "6.2.10",
+    "babel-polyfill": "6.20.0",
     "babel-preset-es2015": "6.18.0",
     "babel-preset-react": "6.16.0",
     "css-loader": "0.26.1",
@@ -24,10 +38,13 @@
     "eslint": "3.12.2",
     "eslint-plugin-react": "6.8.0",
     "file-loader": "0.9.0",
+    "jest": "18.1.0",
+    "jest-webpack-alias": "^3.3.3",
     "jquery": "3.1.1",
     "less-loader": "2.2.3",
     "react": "15.4.1",
     "react-dom": "15.4.1",
+    "react-test-renderer": "15.4.1",
     "semantic-ui": "2.2.7",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",

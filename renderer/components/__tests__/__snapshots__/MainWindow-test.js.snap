@@ -1,0 +1,14 @@
+exports[`test MainWindow can be rendered 1`] = `
+<div>
+  <div
+    className="metronome">
+    <button
+      className="ui icon button"
+      onClick={[Function]}>
+      <i
+        className="cloud icon" />
+    </button>
+    <div />
+  </div>
+</div>
+`;
