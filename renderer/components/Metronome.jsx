@@ -4,6 +4,8 @@
 /* eslint no-console: 0 */
 
 import React, {Component} from 'react';
+import {ipcRenderer as ipc} from 'electron';
+
 // import 'script-loader!Bower/Snap.svg/dist/snap.svg.js';
 
 // const minTempo = 30,
@@ -43,8 +45,27 @@ import React, {Component} from 'react';
  * TODO get rid of Snap and render svg with pure js
  */
 class Metronome extends Component {
+    componentDidMount() {
+        ipc.on('asynchronous-reply', (event, arg) => {
+            const message = `Asynchronous message reply: ${arg}`;
+            this.responseContainer.innerHTML = message;
+        });
+    }
+
+    handleClick() {
+        ipc.send('asynchronous-message', 'ping');
+        console.log('click handled');
+    }
+
     render() {
-        return <div className="metronome">{'Metronome'}</div>;
+        return (
+            <div className="metronome">
+                <button className="ui icon button" onClick={this.handleClick}>
+                    <i className="cloud icon" />
+                </button>
+                <div ref={c => (this.responseContainer = c)} />
+            </div>
+        );
     }
 }
 

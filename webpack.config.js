@@ -2,6 +2,7 @@ const path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     config = {
+        target: 'electron-renderer',
         cache: true,
         entry: {
             app: path.resolve('renderer/App.jsx'),
