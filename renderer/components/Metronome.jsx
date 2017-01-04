@@ -13,7 +13,6 @@ class Metronome extends Component {
 
     handleClick() {
         ipcRenderer.send('asynchronous-message', 'ping');
-        console.log('click handled');
     }
 
     render() {

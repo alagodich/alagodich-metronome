@@ -5,7 +5,7 @@
   "main": "core/main.js",
   "repository": "https://github.com/alagodich/alagodich-metronome.git",
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint --config .eslintrc.json common/** core/** renderer/**",
     "test": "jest",
     "start": "electron .",
     "webpack-watch": "webpack --config webpack.config.js --watch",
