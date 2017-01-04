@@ -8,8 +8,8 @@ const path = require('path'),
             app: path.resolve('renderer/App.jsx'),
             vendors: [
                 'jquery',
-                './semantic/dist/semantic.css',
-                './semantic/dist/semantic.js',
+                './renderer/semantic/dist/semantic.css',
+                './renderer/semantic/dist/semantic.js',
                 'react'
             ]
         },
