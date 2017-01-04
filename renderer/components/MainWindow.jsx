@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
+import Metronome from './Metronome.jsx';
 
 const propTypes = {};
 
 class MainWindow extends Component {
     render() {
-        return <div>{'Main Window'}</div>;
+        return (
+            <div>
+                <Metronome />
+            </div>
+        );
     }
 }
 
