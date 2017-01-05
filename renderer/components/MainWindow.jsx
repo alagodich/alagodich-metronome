@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import Metronome from './Metronome.jsx';
+import Voting from './Voting.jsx';
 
-const propTypes = {};
+const propTypes = {
+        ipc: PropTypes.object
+    },
+    pair = ['Trainspotting', '28 Days Later'];
 
 class MainWindow extends Component {
     render() {
         return (
             <div>
-                <Metronome />
+                <Voting pair={pair} />
+                <Metronome ipc={this.props.ipc} />
             </div>
         );
     }

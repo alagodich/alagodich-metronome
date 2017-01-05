@@ -1,18 +1,26 @@
 'use strict';
 
-import React, {Component} from 'react';
-import {ipcRenderer} from 'electron';
+import React, {Component, PropTypes} from 'react';
+
+const propTypes = {
+    ipc: PropTypes.object
+};
 
 class Metronome extends Component {
+    constructor() {
+        super();
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     componentDidMount() {
-        ipcRenderer.on('asynchronous-reply', (event, arg) => {
+        this.props.ipc.on('asynchronous-reply', (event, arg) => {
             const message = `Asynchronous message reply: ${arg}`;
             this.responseContainer.innerHTML = message;
         });
     }
 
     handleClick() {
-        ipcRenderer.send('asynchronous-message', 'ping');
+        this.props.ipc.send('asynchronous-message', 'ping');
     }
 
     render() {
@@ -27,4 +35,5 @@ class Metronome extends Component {
     }
 }
 
+Metronome.propTypes = propTypes;
 export default Metronome;

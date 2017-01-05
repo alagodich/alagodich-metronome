@@ -1,0 +1,17 @@
+exports[`test Voting can be rendered 1`] = `
+<div
+  className="voting">
+  <button
+    className="ui button">
+    <h5>
+      Trainspotting
+    </h5>
+  </button>
+  <button
+    className="ui button">
+    <h5>
+      28 Days Later
+    </h5>
+  </button>
+</div>
+`;

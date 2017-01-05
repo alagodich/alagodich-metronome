@@ -5,9 +5,26 @@ const electron = require('electron'),
     BrowserWindow = electron.BrowserWindow,
     path = require('path'),
     url = require('url'),
-    ipc = electron.ipcMain;
+    ipc = electron.ipcMain,
+    store = require('./store.js')();
 
-
+store.dispatch({
+    type: 'SET_ENTRIES',
+    entries: [
+        'Shallow Grave',
+        'Trainspotting',
+        'A Life Less Ordinary',
+        'The Beach',
+        '28 Days Later',
+        'Millions',
+        'Sunshine',
+        'Slumdog Millionaire',
+        '127 Hours',
+        'Trance',
+        'Steve Jobs'
+    ]
+});
+store.dispatch({type: 'NEXT'});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,6 +32,15 @@ let mainWindow;
 
 ipc.on('asynchronous-message', event => {
     event.sender.send('asynchronous-reply', 'pong');
+});
+
+// When window loaded, subscribe it to the store
+ipc.on('window-connected', event => {
+    event.sender.send('store-update', store.getState().toJS());
+    store.subscribe(() => {
+        event.sender.send('store-update', store.getState().toJS());
+    });
+    event.sender.on('action', store.dispatch.bind(store));
 });
 
 function createWindow() {
@@ -67,3 +93,5 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+require('./main.js');
+require('./reducer.js');
