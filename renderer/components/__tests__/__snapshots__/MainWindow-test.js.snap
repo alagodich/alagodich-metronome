@@ -1,6 +1,22 @@
 exports[`test MainWindow can be rendered 1`] = `
 <div>
   <div
+    className="voting">
+    <div
+      className="voting ui buttons">
+      <button
+        className="ui button"
+        onClick={[Function]}>
+        Trainspotting
+      </button>
+      <button
+        className="ui button"
+        onClick={[Function]}>
+        28 Days Later
+      </button>
+    </div>
+  </div>
+  <div
     className="metronome">
     <button
       className="ui icon button"

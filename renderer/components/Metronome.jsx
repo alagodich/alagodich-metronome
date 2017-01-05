@@ -3,7 +3,7 @@
 import React, {Component, PropTypes} from 'react';
 
 const propTypes = {
-    ipc: PropTypes.object
+    // ipc: PropTypes.object
 };
 
 class Metronome extends Component {
@@ -13,14 +13,14 @@ class Metronome extends Component {
     }
 
     componentDidMount() {
-        this.props.ipc.on('asynchronous-reply', (event, arg) => {
-            const message = `Asynchronous message reply: ${arg}`;
-            this.responseContainer.innerHTML = message;
-        });
+        // this.props.ipc.on('asynchronous-reply', (event, arg) => {
+        //     const message = `Asynchronous message reply: ${arg}`;
+        //     this.responseContainer.innerHTML = message;
+        // });
     }
 
     handleClick() {
-        this.props.ipc.send('asynchronous-message', 'ping');
+        // this.props.ipc.send('asynchronous-message', 'ping');
     }
 
     render() {

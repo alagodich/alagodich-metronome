@@ -1,6 +1,7 @@
 import React from 'react';
 import MainWindow from '../MainWindow';
 import renderer from 'react-test-renderer';
+import electron from 'electron';
 
 jest.mock('electron', () => ({
     ipcRenderer: ({
@@ -9,7 +10,7 @@ jest.mock('electron', () => ({
 }));
 
 test('MainWindow can be rendered', () => {
-    const component = renderer.create(<MainWindow />),
+    const component = renderer.create(<MainWindow ipc={electron.ipcRenderer} />),
         tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();

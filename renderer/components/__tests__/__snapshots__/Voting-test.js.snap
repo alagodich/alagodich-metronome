@@ -1,17 +1,49 @@
-exports[`test Voting can be rendered 1`] = `
+exports[`test voted 1`] = `
 <div
   className="voting">
-  <button
-    className="ui button">
-    <h5>
+  <div
+    className="voting ui buttons">
+    <button
+      className="ui button"
+      onClick={undefined}>
+      <i
+        className="heart icon" />
       Trainspotting
-    </h5>
-  </button>
-  <button
-    className="ui button">
-    <h5>
+    </button>
+    <button
+      className="ui button"
+      onClick={undefined}>
       28 Days Later
-    </h5>
-  </button>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test voting 1`] = `
+<div
+  className="voting">
+  <div
+    className="voting ui buttons">
+    <button
+      className="ui button"
+      onClick={undefined}>
+      Trainspotting
+    </button>
+    <button
+      className="ui button"
+      onClick={undefined}>
+      28 Days Later
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test winner 1`] = `
+<div
+  className="voting">
+  <span>
+    Trainspotting
+     winner!
+  </span>
 </div>
 `;

@@ -5,7 +5,7 @@ const path = require('path'),
         target: 'electron-renderer',
         cache: true,
         entry: {
-            app: path.resolve('renderer/App.jsx'),
+            app: path.resolve('renderer/index.jsx'),
             vendors: [
                 'jquery',
                 './semantic/dist/semantic.css',
