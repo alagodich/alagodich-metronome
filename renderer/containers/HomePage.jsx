@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import MainWindow from '../components/MainWindow.jsx';
+import Home from '../components/Home.jsx';
 
 class HomePage extends Component {
     render() {
-        console.log('HomePage::render()');
-        return <MainWindow />;
+        return <Home />;
     }
 }
 

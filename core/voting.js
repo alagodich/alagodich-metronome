@@ -20,11 +20,24 @@ function getWinners(vote) {
 }
 
 module.exports = {
-    INITIAL_STATE: map(),
+    INITIAL_STATE: {
+        entries: [
+            'Shallow Grave',
+            'Trainspotting',
+            'A Life Less Ordinary',
+            'The Beach',
+            '28 Days Later',
+            'Millions',
+            'Sunshine',
+            'Slumdog Millionaire',
+            '127 Hours',
+            'Trance',
+            'Steve Jobs'
+        ]
+    },
     setEntries: (state, entries) => state.set('entries', list(entries)),
     nextAction: state => {
-        const entries = state.get('entries')
-            .concat(getWinners(state.get('vote')));
+        const entries = state.get('entries').concat(getWinners(state.get('vote')));
 
         return entries.size === 1
             ? state.remove('vote').remove('entries').set('winner', entries.first())

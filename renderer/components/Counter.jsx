@@ -22,13 +22,13 @@ class Counter extends Component {
         const {increment, incrementIfOdd, incrementAsync, decrement, counter} = this.props;
         return (
             <div>
-                <div className={''}>
+                <div>
                     <Link to="/">{'back'}</Link>
                 </div>
                 <div className={`counter ${''}`}>
                     {counter}
                 </div>
-                <div className={''}>
+                <div>
                     <button className="ui icon button" onClick={increment}>
                         <i className="plus icon" />
                     </button>
