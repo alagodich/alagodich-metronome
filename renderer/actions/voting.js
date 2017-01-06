@@ -1,6 +1,6 @@
-export const VOTE = 'VOTE';
-export const NEXT = 'NEXT';
-export const SET_ENTRIES = 'SET_ENTRIES';
+export const VOTE = 'VOTE',
+    NEXT = 'NEXT',
+    SET_ENTRIES = 'SET_ENTRIES';
 
 export function vote(entry) {
     return {

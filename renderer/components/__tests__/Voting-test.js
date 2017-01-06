@@ -1,18 +1,14 @@
 import React from 'react';
-import Voting from '../Voting';
+import Voting from '../Voting.jsx';
 import renderer from 'react-test-renderer';
 
-jest.mock('electron', () => ({
-    ipcRenderer: ({
-        on: jest.fn(() => {})
-    })
-}));
+const vote = () => {},
+    next = () => {};
 
 test('voting', () => {
-    const vote = () => {},
-        pair = ['Trainspotting', '28 Days Later'],
+    const pair = ['Trainspotting', '28 Days Later'],
         component = renderer.create(
-            <Voting pair={pair} vote={vote} />
+            <Voting pair={pair} vote={vote} next={next} />
         ),
         tree = component.toJSON();
 
@@ -20,10 +16,14 @@ test('voting', () => {
 });
 
 test('voted', () => {
-    const vote = () => {},
-        pair = ['Trainspotting', '28 Days Later'],
+    const pair = ['Trainspotting', '28 Days Later'],
         component = renderer.create(
-            <Voting pair={pair} vote={vote} hasVoted={pair[0]}/>
+            <Voting
+                pair={pair}
+                vote={vote}
+                next={next}
+                hasVoted={pair[0]}
+            />
         ),
         tree = component.toJSON();
 
@@ -33,7 +33,12 @@ test('voted', () => {
 test('winner', () => {
     const pair = ['Trainspotting', '28 Days Later'],
         component = renderer.create(
-            <Voting pair={pair} winner={pair[0]} />
+            <Voting
+                pair={pair}
+                winner={pair[0]}
+                vote={vote}
+                next={next}
+            />
         ),
         tree = component.toJSON();
 

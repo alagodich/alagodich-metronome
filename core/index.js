@@ -11,17 +11,9 @@ const electron = require('electron'),
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-ipc.on('asynchronous-message', event => {
-    event.sender.send('asynchronous-reply', 'pong');
-});
-
-// When window loaded, subscribe it to the store
+// When window loaded
 ipc.on('window-connected', event => {
-    // event.sender.send('store-update', store.getState().toJS());
-    // store.subscribe(() => {
-    //     event.sender.send('store-update', store.getState().toJS());
-    // });
-    // event.sender.on('action', store.dispatch.bind(store));
+    event.sender.send('hi');
 });
 
 function createWindow() {

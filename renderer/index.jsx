@@ -41,7 +41,7 @@ store.dispatch({
 });
 store.dispatch({type: 'NEXT'});
 
-ipcRenderer.on('store-update', (event, arg) => {
+ipcRenderer.on('store', (event, arg) => {
     console.log('store-update recieved', event, arg);
 });
 

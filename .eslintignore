@@ -1,7 +1,7 @@
 **/*{.,-}min.js
 build/**
+.git/**
 node_modules/**
-renderer/semantic/**
+semantic/**
 **/*.js.snap
-**/*.html
 **/*.mp3

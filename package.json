@@ -5,7 +5,7 @@
   "main": "core/index.js",
   "repository": "https://github.com/alagodich/alagodich-metronome.git",
   "scripts": {
-    "lint": "eslint --config .eslintrc.json common/** core/** renderer/**",
+    "lint": "eslint --config .eslintrc.json --ext .js,.jsx .",
     "test": "jest",
     "start": "electron .",
     "webpack-watch": "webpack --config webpack.config.js --watch",
@@ -19,6 +19,10 @@
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react/",
       "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/react-router/",
+      "<rootDir>/node_modules/react-router-redux/",
+      "<rootDir>/node_modules/redux/",
+      "<rootDir>/node_modules/redux-thunk/",
       "<rootDir>/node_modules/react-test-renderer/",
       "<rootDir>/node_modules/react-addons-test-utils/",
       "<rootDir>/node_modules/fbjs/",

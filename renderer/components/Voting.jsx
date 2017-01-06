@@ -33,7 +33,11 @@ class Voting extends Component {
                 </div>
 
                 <div className="entries ui list">
-                    {this.props.entries.map(entry => <div className="item" key={entry}>{entry}</div>)}
+                    {
+                        this.props.entries
+                            ? this.props.entries.map(entry => <div className="item" key={entry}>{entry}</div>)
+                            : null
+                    }
                 </div>
 
                 <div className="voting">

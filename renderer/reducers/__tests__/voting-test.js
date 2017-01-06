@@ -1,7 +1,5 @@
-const immutable = require('immutable'),
-    fromJS = immutable.fromJS,
-    map = immutable.Map,
-    reducer = require('../reducer.js');
+import {fromJS, Map as map} from 'immutable';
+import reducer from '../voting.js';
 
 describe('reducer', () => {
 
@@ -9,9 +7,9 @@ describe('reducer', () => {
         const action = {type: 'SET_ENTRIES', entries: ['Trainspotting']},
             nextState = reducer(undefined, action);
 
-        expect(nextState).toEqual(fromJS({
+        expect(nextState).toEqual({
             entries: ['Trainspotting']
-        }));
+        });
     });
 
     it('handles SET_ENTRIES', () => {
@@ -22,9 +20,9 @@ describe('reducer', () => {
             },
             nextState = reducer(initialState, action);
 
-        expect(nextState).toEqual(fromJS({
+        expect(nextState).toEqual({
             entries: ['Trainspotting']
-        }));
+        });
     });
 
     it('handles NEXT', () => {
@@ -36,7 +34,7 @@ describe('reducer', () => {
             },
             nextState = reducer(initialState, action);
 
-        expect(nextState.toJS()).toEqual({
+        expect(nextState).toEqual({
             vote: {
                 pair: ['Trainspotting', '28 Days Later']
             },
@@ -57,7 +55,7 @@ describe('reducer', () => {
             },
             nextState = reducer(initialState, action);
 
-        expect(nextState).toEqual(fromJS({
+        expect(nextState).toEqual({
             vote: {
                 pair: ['Trainspotting', '28 Days Later'],
                 tally: {
@@ -65,7 +63,7 @@ describe('reducer', () => {
                 }
             },
             entries: []
-        }));
+        });
     });
 
     it('может использоваться с reduce', () => {
@@ -79,9 +77,9 @@ describe('reducer', () => {
             ],
             finalState = actions.reduce(reducer, map());
 
-        expect(finalState).toEqual(fromJS({
+        expect(finalState).toEqual({
             winner: 'Trainspotting'
-        }));
+        });
     });
 
 });

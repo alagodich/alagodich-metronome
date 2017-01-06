@@ -1,4 +1,4 @@
-const Main = require('../main.js'),
+const Main = require('../voting.js'),
     setEntries = Main.setEntries,
     nextAction = Main.nextAction,
     vote = Main.vote,

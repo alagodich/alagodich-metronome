@@ -1,49 +1,103 @@
 exports[`test voted 1`] = `
-<div
-  className="voting">
-  <div
-    className="voting ui buttons">
-    <button
-      className="ui button"
-      onClick={undefined}>
-      <i
-        className="heart icon" />
-      Trainspotting
-    </button>
-    <button
-      className="ui button"
-      onClick={undefined}>
-      28 Days Later
-    </button>
+<div>
+  <div>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      back
+    </a>
   </div>
+  <div
+    className="entries ui list" />
+  <div
+    className="voting">
+    <div
+      className="voting ui buttons">
+      <button
+        className="ui button"
+        onClick={undefined}>
+        <i
+          className="heart icon" />
+        Trainspotting
+      </button>
+      <button
+        className="ui button"
+        onClick={undefined}>
+        28 Days Later
+      </button>
+    </div>
+  </div>
+  <div
+    className="tally" />
+  <button
+    className="ui blue button"
+    onClick={undefined}>
+    Next
+  </button>
 </div>
 `;
 
 exports[`test voting 1`] = `
-<div
-  className="voting">
-  <div
-    className="voting ui buttons">
-    <button
-      className="ui button"
-      onClick={undefined}>
-      Trainspotting
-    </button>
-    <button
-      className="ui button"
-      onClick={undefined}>
-      28 Days Later
-    </button>
+<div>
+  <div>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      back
+    </a>
   </div>
+  <div
+    className="entries ui list" />
+  <div
+    className="voting">
+    <div
+      className="voting ui buttons">
+      <button
+        className="ui button"
+        onClick={undefined}>
+        Trainspotting
+      </button>
+      <button
+        className="ui button"
+        onClick={undefined}>
+        28 Days Later
+      </button>
+    </div>
+  </div>
+  <div
+    className="tally" />
+  <button
+    className="ui blue button"
+    onClick={undefined}>
+    Next
+  </button>
 </div>
 `;
 
 exports[`test winner 1`] = `
-<div
-  className="voting">
-  <span>
-    Trainspotting
-     winner!
-  </span>
+<div>
+  <div>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      back
+    </a>
+  </div>
+  <div
+    className="entries ui list" />
+  <div
+    className="voting">
+    <span>
+      Trainspotting
+       winner!
+    </span>
+  </div>
+  <div
+    className="tally" />
+  <button
+    className="ui blue button"
+    onClick={undefined}>
+    Next
+  </button>
 </div>
 `;
