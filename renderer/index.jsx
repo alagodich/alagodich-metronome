@@ -43,7 +43,7 @@ window.onload = () => {
     }
     render(
         <Provider store={store}>
-            <Router history={history} routes={routes} />
+            <Router history={history} routes={routes(store.dispatch)} />
         </Provider>,
         container
     );

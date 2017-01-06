@@ -29,7 +29,7 @@ module.exports = {
             signature: '4/4',
             accentFirstBeat: false,
             volume: 0.5,
-            useOscillator: true
+            useOscillator: false
         },
         spaceKeyCode: 32
     }
