@@ -5,22 +5,11 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {ipcRenderer} from 'electron';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
-import configureStore from './store';
+import {Router, hashHistory} from 'react-router';
+import configureStore from './store.js';
+import routes from './routes.jsx';
 
-import App from './containers/App.jsx';
-import HomePage from './containers/HomePage.jsx';
-import CounterPage from './containers/CounterPage.jsx';
-import VotingPage from './containers/VotingPage.jsx';
-
-const routes = (
-    <Route path={'/'} component={App}>
-        <IndexRoute component={HomePage} />
-        <Route path="/counter" component={CounterPage} />
-        <Route path="/voting" component={VotingPage} />
-    </Route>
-    ),
-    store = configureStore(),
+const store = configureStore(),
     history = syncHistoryWithStore(hashHistory, store);
 
 store.dispatch({

@@ -5,7 +5,8 @@ const electron = require('electron'),
     BrowserWindow = electron.BrowserWindow,
     path = require('path'),
     url = require('url'),
-    ipc = electron.ipcMain;
+    ipc = electron.ipcMain,
+    Menu = electron.Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -36,6 +37,16 @@ function createWindow() {
         mainWindow.focus();
         // Open the DevTools.
         mainWindow.webContents.openDevTools();
+        mainWindow.webContents.on('context-menu', (event, props) => {
+            const {x, y} = props;
+
+            Menu.buildFromTemplate([{
+                label: 'Inspect element',
+                click() {
+                    mainWindow.inspectElement(x, y);
+                }
+            }]).popup(mainWindow);
+        });
     });
 
     // Emitted when the window is closed.
