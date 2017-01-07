@@ -6,7 +6,6 @@ const electron = require('electron'),
     path = require('path'),
     url = require('url'),
     ipc = electron.ipcMain,
-    Menu = electron.Menu,
     lookAhead = 50.0; // better be 25.0
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -26,10 +25,10 @@ ipc.on('stop', () => clearInterval(timer));
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        show: false,
-        frame: false
+        width: 450,
+        height: 200,
+        show: false
+        // frame: false
     });
 
     // and load the index.html of the app.

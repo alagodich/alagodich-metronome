@@ -1,7 +1,6 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
 import {metronome as Constants} from './../../common/Constants.js';
 import {Button, Icon} from 'semantic-ui-react';
 
@@ -25,9 +24,6 @@ class Metronome extends Component {
     render() {
         return (
             <div className="metronome">
-                <div>
-                    <Link to="/">{'back'}</Link>
-                </div>
                 <div className="ui centered card">
                     <div className="extra content ui form">
                         <div id="controls">

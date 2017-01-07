@@ -6,11 +6,16 @@ import CounterPage from './containers/CounterPage.jsx';
 import {metronomePage, onInit as initMetronome} from './containers/metronomePage.jsx';
 import VotingPage from './containers/VotingPage.jsx';
 
+// export default dispatch => (
+//     <Route path={'/'} component={App}>
+//         <IndexRoute component={HomePage} />
+//         <Route path="/counter" component={CounterPage} />
+//         <Route path="/metronome" component={metronomePage()} onEnter={initMetronome(dispatch)} />
+//         <Route path="/voting" component={VotingPage} />
+//     </Route>
+// );
 export default dispatch => (
     <Route path={'/'} component={App}>
-        <IndexRoute component={HomePage} />
-        <Route path="/counter" component={CounterPage} />
-        <Route path="/metronome" component={metronomePage()} onEnter={initMetronome(dispatch)} />
-        <Route path="/voting" component={VotingPage} />
+        <IndexRoute component={metronomePage()} onEnter={initMetronome(dispatch)} />
     </Route>
 );
