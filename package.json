@@ -1,6 +1,7 @@
 {
   "name": "alagodich-metronome",
-  "version": "1.0.0",
+  "productName": "alagodich-metronome",
+  "version": "0.0.1",
   "description": "",
   "main": "core/index.js",
   "repository": "https://github.com/alagodich/alagodich-metronome.git",
