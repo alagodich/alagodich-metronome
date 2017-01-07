@@ -1,17 +1,12 @@
-import {loadBeats} from '../models/metronome.js';
+import {fetchAudio} from '../models/metronome.js';
 
-export const TOGGLE = 'TOGGLE',
-    START = 'START',
+export const START = 'START',
     STOP = 'STOP',
-    SET_BEATS = 'SET_BEATS',
+    READY = 'READY',
     SET_TEMPO = 'SET_TEMPO',
-    SET_VOLUME = 'SET_VOLUME';
+    SET_VOLUME = 'SET_VOLUME',
+    init = dispatch => fetchAudio(() => dispatch(ready()));
 
-export function toggle() {
-    return {
-        type: TOGGLE
-    };
-}
 
 export function start() {
     return {
@@ -25,29 +20,22 @@ export function stop() {
     };
 }
 
-export function setBeats(beats) {
+export function ready() {
     return {
-        type: SET_BEATS,
-        beats
+        type: READY
     };
 }
 
-export function setTempo(tempo) {
+export function setTempo(event) {
     return {
         type: SET_TEMPO,
-        tempo
+        tempo: parseInt(event.target.value, 10)
     };
 }
 
-export function setVolume(volume) {
+export function setVolume(event) {
     return {
         type: SET_VOLUME,
-        volume
-    };
-}
-
-export function fetchBeats() {
-    return dispatch => {
-        loadBeats(beats => dispatch(setBeats(beats)));
+        volume: parseInt(event.target.value, 10)
     };
 }

@@ -28,7 +28,7 @@ module.exports = {
             isPlaying: false,
             signature: '4/4',
             accentFirstBeat: false,
-            volume: 0.5,
+            volume: 50,
             useOscillator: false
         },
         spaceKeyCode: 32

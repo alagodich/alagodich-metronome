@@ -10,8 +10,7 @@ function mapStateToProps(state) {
         noteResolution: state.metronome.noteResolution,
         signature: state.metronome.signature,
         volume: state.metronome.volume,
-        isPlaying: state.metronome.isPlaying,
-        audio: state.metronome.audio
+        isPlaying: state.metronome.isPlaying
     };
 }
 
@@ -20,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export function onInit(dispatch) {
-    dispatch(MetronomeActions.fetchBeats());
+    dispatch(MetronomeActions.init);
 }
 
 export function metronomePage() {

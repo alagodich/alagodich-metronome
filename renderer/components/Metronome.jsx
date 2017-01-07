@@ -3,33 +3,25 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import {metronome as Constants} from './../../common/Constants.js';
+import {Button, Icon} from 'semantic-ui-react';
 
 const propTypes = {
-        loading: PropTypes.bool,
+    loading: PropTypes.bool,
+    isPlaying: PropTypes.bool,
+    tempo: PropTypes.number,
+    volume: PropTypes.number,
 
-        audio: PropTypes.shape({
-            context: PropTypes.object,
-            source: PropTypes.object,
-            gainNode: PropTypes.object
-        }),
+    noteResolution: PropTypes.number,
+    signature: PropTypes.string,
 
-        isPlaying: PropTypes.bool,
-        tempo: PropTypes.number,
-        volume: PropTypes.number,
-
-        noteResolution: PropTypes.number,
-        signature: PropTypes.string,
-
-        setTempo: PropTypes.func,
-        setVolume: PropTypes.func,
-        toggle: PropTypes.func
-
-        // useOscillator: PropTypes.bool,
-        // accentFirstBeat: PropTypes.bool,
-    },
-    githubUrl = 'https://github.com/alagodich/alagodich.github.io/blob/master/app/components/Metronome.jsx';
+    setTempo: PropTypes.func,
+    setVolume: PropTypes.func,
+    start: PropTypes.func,
+    stop: PropTypes.func
+};
 
 class Metronome extends Component {
+
     render() {
         return (
             <div className="metronome">
@@ -37,18 +29,6 @@ class Metronome extends Component {
                     <Link to="/">{'back'}</Link>
                 </div>
                 <div className="ui centered card">
-                    <div className="content" ref={c => (this.container = c)}>
-                        <a
-                            href={githubUrl}
-                            target="_blank"
-                            className="ui right corner blue label"
-                        >
-                            <i
-                                className="white github icon"
-                                style={{textDecoration: 'none', cursor: 'pointer'}}
-                            />
-                        </a>
-                    </div>
                     <div className="extra content ui form">
                         <div id="controls">
                             <div id="tempo">
@@ -60,34 +40,19 @@ class Metronome extends Component {
                                     max={Constants.maxTempo}
                                     value={this.props.tempo}
                                     onChange={this.props.setTempo}
-                                    className="metronome__slider"
+                                    style={{width: '100%'}}
                                 />
                             </div>
-                            <div id="volume">
-                                {'Volume: '}<span>{this.props.volume}{'%'}</span><br/>
-                                <input
-                                    id="volume"
-                                    type="range"
-                                    min={Constants.minVolume}
-                                    max={Constants.maxVolume}
-                                    value={this.props.volume}
-                                    onChange={this.props.setVolume}
-                                    className="metronome__slider"
-                                />
-                            </div>
-
                         </div>
                     </div>
-                    <button
-                        className={
-                            this.props.loading
-                                ? 'ui bottom primary attached disabled button'
-                                : 'ui bottom primary attached button'
-                        }
-                        onClick={this.props.toggle}
+                    <Button
+                        primary
+                        attached="bottom"
+                        disabled={this.props.loading}
+                        onClick={this.props.isPlaying ? this.props.stop : this.props.start}
                     >
-                        <i className="white play icon" />
-                    </button>
+                        <Icon name={this.props.isPlaying ? 'stop' : 'play'} />
+                    </Button>
                 </div>
 
             </div>

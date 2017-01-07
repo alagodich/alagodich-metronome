@@ -7,9 +7,9 @@ const path = require('path'),
         entry: {
             app: path.resolve('renderer/index.jsx'),
             vendors: [
-                'jquery',
+                // 'jquery',
                 './semantic/dist/semantic.css',
-                './semantic/dist/semantic.js',
+                // './semantic/dist/semantic.js',
                 'react'
             ]
         },
@@ -26,11 +26,11 @@ const path = require('path'),
             new ExtractTextPlugin({
                 filename: 'app.css'
             }),
-            new webpack.ProvidePlugin({
-                $: 'jquery',
-                jQuery: 'jquery',
-                'window.jQuery': 'jquery'
-            })
+            // new webpack.ProvidePlugin({
+            //     $: 'jquery',
+            //     jQuery: 'jquery',
+            //     'window.jQuery': 'jquery'
+            // })
         ],
         module: {
             rules: [

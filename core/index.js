@@ -6,23 +6,30 @@ const electron = require('electron'),
     path = require('path'),
     url = require('url'),
     ipc = electron.ipcMain,
-    Menu = electron.Menu;
+    Menu = electron.Menu,
+    lookAhead = 50.0; // better be 25.0
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+let mainWindow,
+    timer;
 
-// When window loaded
-ipc.on('window-connected', event => {
-    event.sender.send('hi');
+ipc.on('start', event => {
+    if (timer) {
+        clearInterval(timer);
+    }
+    timer = setInterval(() => event.sender.send('tick'), lookAhead);
 });
+
+ipc.on('stop', () => clearInterval(timer));
 
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 1024,
-        height: 800,
-        show: false
+        width: 800,
+        height: 600,
+        show: false,
+        frame: false
     });
 
     // and load the index.html of the app.
@@ -35,18 +42,23 @@ function createWindow() {
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.show();
         mainWindow.focus();
-        // Open the DevTools.
-        mainWindow.webContents.openDevTools();
-        mainWindow.webContents.on('context-menu', (event, props) => {
-            const {x, y} = props;
 
-            Menu.buildFromTemplate([{
-                label: 'Inspect element',
-                click() {
-                    mainWindow.inspectElement(x, y);
-                }
-            }]).popup(mainWindow);
-        });
+        // Open the DevTools.
+
+        // mainWindow.webContents.openDevTools();
+
+        // Enable inspect in context menu
+
+        // mainWindow.webContents.on('context-menu', (event, props) => {
+        //     const {x, y} = props;
+        //
+        //     Menu.buildFromTemplate([{
+        //         label: 'Inspect element',
+        //         click() {
+        //             mainWindow.inspectElement(x, y);
+        //         }
+        //     }]).popup(mainWindow);
+        // });
     });
 
     // Emitted when the window is closed.
