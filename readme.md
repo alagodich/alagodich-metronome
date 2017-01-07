@@ -1,10 +1,11 @@
-#TODO
-https://github.com/chentsulin/electron-react-boilerplate
+## Simple metronome app built on http://electron.atom.io/
 
+### dist
+`yarn run dist`
 
-https://habrahabr.ru/company/mailru/blog/303456/
+### dev
+`yarn start`
 
-
-Redux doc
-
-http://redux.js.org/docs/basics/UsageWithReact.html
+### renderer build 
+`yarn run webpack-build`
+`yarn run webpack-watch`

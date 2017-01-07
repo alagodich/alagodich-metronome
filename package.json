@@ -1,8 +1,8 @@
 {
-  "name": "alagodich-metronome",
-  "productName": "alagodich-metronome",
+  "name": "metronome",
+  "productName": "metronome",
   "version": "0.0.1",
-  "description": "",
+  "description": "Simple free metronome",
   "main": "core/index.js",
   "repository": "https://github.com/alagodich/alagodich-metronome.git",
   "scripts": {
@@ -10,11 +10,44 @@
     "test": "jest",
     "start": "electron .",
     "webpack-watch": "webpack --config webpack.config.js --watch",
-    "webpack-build": "webpack --config webpack.config.prod.js",
-    "semantic-ui": "gulp --gulpfile semantic/gulpfile.js clean && gulp --gulpfile semantic/gulpfile.js build"
+    "webpack-build": "webpack --config webpack.config.js",
+    "semantic-ui": "gulp --gulpfile semantic/gulpfile.js clean && gulp --gulpfile semantic/gulpfile.js build",
+    "package-mac": "electron-packager . --platform mas",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "author": "https://github.com/alagodich",
   "license": "ISC",
+  "build": {
+    "appId": "alagodich.id",
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "files": [
+      "dist/",
+      "common/",
+      "core/",
+      "renderer/",
+      "semantic/",
+      "node_modules/",
+      "package.json"
+    ]
+  },
   "jest": {
     "automock": true,
     "unmockedModulePathPatterns": [
@@ -44,7 +77,7 @@
     "css-loader": "0.26.1",
     "devtron": "1.4.0",
     "electron": "1.4.13",
-    "electron-packager": "^8.4.0",
+    "electron-builder": "^10.17.3",
     "eslint": "3.12.2",
     "eslint-plugin-react": "6.8.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",

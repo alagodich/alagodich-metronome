@@ -14,7 +14,7 @@ const path = require('path'),
             ]
         },
         output: {
-            path: path.resolve('build'),
+            path: path.resolve('dist'),
             filename: '[name].js'
         },
         plugins: [
